@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/mohammadshabab/bookstore_utils-go/logger"
-	"gopkg.in/olivere/elastic.v7"
+	"github.com/olivere/elastic"
 )
 
 const (
