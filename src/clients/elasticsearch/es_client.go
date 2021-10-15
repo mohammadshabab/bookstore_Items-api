@@ -48,6 +48,7 @@ func Init() {
 	Client.setClient(client)
 
 	// Create the index if it does not exists
+	// Client.Index()
 }
 
 func (c *esClient) setClient(client *elastic.Client) {
@@ -87,7 +88,7 @@ func (c *esClient) Search(index string, query elastic.Query) (*elastic.SearchRes
 	ctx := context.Background()
 	result, err := c.client.Search(index).
 		Query(query).
-		RequestCache(true).
+		RestTotalHitsAsInt(true).
 		Do(ctx)
 	if err != nil {
 		logger.Error(fmt.Sprintf("error when trying to search documents in index %s", index), err)
